@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class StartActivity extends Activity {
 
@@ -67,5 +68,20 @@ public class StartActivity extends Activity {
     protected void onDestroy() {
         super.onDestroy();
         Log.i(TAG, "In onDestroy()");
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        switch (requestCode) {
+            case 10:
+                Log.i(TAG, "Returned to StartActivity.onActivityResult");
+                break;
+        }
+        switch (resultCode) {
+            case Activity.RESULT_OK:
+                String messagePassed = data.getStringExtra("Response");
+                Toast.makeText(this, messagePassed, Toast.LENGTH_LONG).show();
+                break;
+        }
     }
 }

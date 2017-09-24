@@ -9,7 +9,6 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
 public class LoginActivity extends Activity {
 
@@ -83,6 +82,6 @@ public class LoginActivity extends Activity {
 
         Intent intent = new Intent(LoginActivity.this, StartActivity.class);
         startActivity(intent);
-        Toast.makeText(this, R.string.login_Message, Toast.LENGTH_LONG).show();
+
     }
 }
