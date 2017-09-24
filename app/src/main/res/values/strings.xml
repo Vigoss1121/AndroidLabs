@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">AndroidLabs</string>
-    <string name="hello_message">Hello World!</string>
-    <string name="ButtonText">I\’m a button</string>
+    <string name="hello_message">Welcome!</string>
+    <string name="ButtonText">START</string>
     <string name="title_activity_login">Sign in</string>
     <string name="text_login">Login</string>
     <string name="text_password">Password</string>
@@ -10,5 +10,6 @@
     <string name="radio_button_text">RadioButton</string>
     <string name="checkbox_text">CheckBox</string>
     <string name="switch_text">What does it do?</string>
-
+    <string name="button_login">LOGIN</string>
+    <string name="login_Message">Login Successful!</string>
 </resources>
