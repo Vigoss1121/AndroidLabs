@@ -17,7 +17,7 @@ public class LoginActivity extends Activity {
     private Button button_login;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+        protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);

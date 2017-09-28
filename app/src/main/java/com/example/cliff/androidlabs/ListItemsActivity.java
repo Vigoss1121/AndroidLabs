@@ -117,8 +117,7 @@ public class ListItemsActivity extends Activity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == Activity.RESULT_OK) {
             Bitmap photo = (Bitmap) data.getExtras().get("data");
-            Bitmap resized = Bitmap.createScaledBitmap(photo, 1024, 1024, true);
-            button_camera.setImageBitmap(resized);
+            button_camera.setImageBitmap(photo);
         }
     }
 }

@@ -32,10 +32,10 @@ public class StartActivity extends Activity {
         welcome.setText(email);
 
         button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(StartActivity.this, ListItemsActivity.class);
-                startActivityForResult(intent, 10);
+                    @Override
+                    public void onClick(View view) {
+                        Intent intent = new Intent(StartActivity.this, ListItemsActivity.class);
+                        startActivityForResult(intent, 10);
             }
         });
     }
