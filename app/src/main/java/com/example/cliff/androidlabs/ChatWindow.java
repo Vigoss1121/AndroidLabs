@@ -4,7 +4,9 @@ package com.example.cliff.androidlabs;
         import android.app.Activity;
         import android.content.Context;
         import android.content.res.Resources;
+        import android.database.Cursor;
         import android.os.Bundle;
+        import android.util.Log;
         import android.view.LayoutInflater;
         import android.view.View;
         import android.view.ViewGroup;
@@ -21,6 +23,9 @@ package com.example.cliff.androidlabs;
 public class ChatWindow extends Activity {
     protected static final String ACTIVITY_NAME = "ChatWindow";
 
+    private ChatDatabaseHelper databaseHelper;
+    private ChatAdapter messageAdapter;
+
     final ArrayList<String> chatArray = new ArrayList<>();
 
     @Override
@@ -31,19 +36,38 @@ public class ChatWindow extends Activity {
         Resources resources = getResources();
         ListView listViewChat;
         listViewChat = (ListView) findViewById(R.id.listView);
-        final ChatAdapter messageAdapter = new ChatAdapter(this);
+        messageAdapter = new ChatAdapter(this);
         listViewChat.setAdapter(messageAdapter);
         final EditText editTextChat = (EditText) findViewById(R.id.chatview);
         Button buttonSend = (Button) findViewById(R.id.send_button);
+        databaseHelper = new ChatDatabaseHelper(this);
+
+        databaseHelper.openDatabase();
+        readDatabase();
+
         buttonSend.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String chatString = editTextChat.getText().toString();
-                chatArray.add(chatString);
-                messageAdapter.notifyDataSetChanged();
+                databaseHelper.insert(chatString);
+                readDatabase();
                 editTextChat.setText("");
             }
         });
+    }
+
+    private void readDatabase(){
+        chatArray.clear();
+        Cursor cursor = databaseHelper.getRecords();
+        for (cursor.moveToFirst(); !cursor.isAfterLast(); cursor.moveToNext()) {
+            chatArray.add(cursor.getString(cursor.getColumnIndex(databaseHelper.COLUMN_CONTENT)));
+            Log.i(ACTIVITY_NAME, "SQL MESSAGE:" + cursor.getString( cursor.getColumnIndex( ChatDatabaseHelper.COLUMN_CONTENT) ) );
+        }
+        messageAdapter.notifyDataSetChanged();
+        Log.i(ACTIVITY_NAME, "Cursor’s  column count = " + cursor.getColumnCount() );
+        for (int i = 0; i < cursor.getColumnCount(); i++){
+            Log.i(ACTIVITY_NAME, "Cursor’s  column name = " + (i + 1) + ". " + cursor.getColumnName(i) );
+        }
     }
 
     private class ChatAdapter extends ArrayAdapter<String> {
@@ -77,5 +101,11 @@ public class ChatWindow extends Activity {
             }
             return result;
         }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        databaseHelper.closeDatabase();
     }
 }
