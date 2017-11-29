@@ -19,4 +19,8 @@
     <string name="ok">确定</string>
     <string name="cancel">取消</string>
     <string name="button_chat">开始聊天</string>
+    <string name="weatherCurrentTemp">当前温度</string>
+    <string name="weatherMinTemp">最低温度</string>
+    <string name="weatherMaxTemp">最高温度</string>
+    <string name="button_weather">天气预报</string>
 </resources>

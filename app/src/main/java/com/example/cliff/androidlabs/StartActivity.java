@@ -93,4 +93,9 @@ public class StartActivity extends Activity {
                 break;
         }
     }
+
+    public void button_weather(View view) {
+        Intent intent = new Intent(StartActivity.this,WeatherForecast.class);
+        startActivity(intent);
+    }
 }

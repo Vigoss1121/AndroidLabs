@@ -18,4 +18,8 @@
     <string name="ok">OK</string>
     <string name="cancel">Cancel</string>
     <string name="button_chat">START CHAT</string>
+    <string name="weatherCurrentTemp">Current Temperatue</string>
+    <string name="weatherMinTemp">Min Temperture</string>
+    <string name="weatherMaxTemp">Max Temperature</string>
+    <string name="button_weather">Weather Forecast</string>
 </resources>
