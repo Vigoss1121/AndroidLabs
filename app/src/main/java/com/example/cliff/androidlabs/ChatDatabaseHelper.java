@@ -64,6 +64,10 @@ public class ChatDatabaseHelper  extends SQLiteOpenHelper {
 
     }
 
+    public void deleteItem(String id) {
+        getWritableDatabase().execSQL("DELETE FROM " + TABLE_NAME + " WHERE " + COLUMN_ID + " = " + id);
+    }
+
     public Cursor getRecords() {
         return database.query(TABLE_NAME, null, null, null, null, null, null);
     }
