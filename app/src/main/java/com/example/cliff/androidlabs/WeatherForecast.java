@@ -13,9 +13,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-
 import org.xmlpull.v1.XmlPullParser;
-
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
