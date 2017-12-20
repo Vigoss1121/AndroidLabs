@@ -3,8 +3,26 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="liyue.cst2335lab8.TestToolbar">
     <item
-        android:id="@+id/action_settings"
-        android:orderInCategory="100"
-        android:title="@string/action_settings"
+        android:id="@+id/action_add"
+        android:orderInCategory="102"
+        android:title="@string/action_add"
+        android:icon="@drawable/ic_add_white"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/action_weather"
+        android:icon="@drawable/ic_sunny_white"
+        android:orderInCategory="103"
+        android:title="@string/action_weather"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/action_message"
+        android:orderInCategory="101"
+        android:title="@string/action_message"
+        android:icon="@drawable/ic_message_white"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/action_about"
+        android:orderInCategory="104"
+        android:title="@string/action_about"
         app:showAsAction="never" />
 </menu>

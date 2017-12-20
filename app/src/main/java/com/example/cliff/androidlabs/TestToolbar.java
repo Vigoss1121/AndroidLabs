@@ -1,5 +1,8 @@
 package com.example.cliff.androidlabs;
 
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -8,8 +11,14 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.EditText;
+import android.widget.Toast;
 
 public class TestToolbar extends AppCompatActivity {
+
+    private EditText message;
+    private Dialog customDialog;
+    private String passedMessage = "Default message";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,7 +31,7 @@ public class TestToolbar extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                Snackbar.make(view, R.string.message, Snackbar.LENGTH_SHORT)
                         .setAction("Action", null).show();
             }
         });
@@ -43,10 +52,36 @@ public class TestToolbar extends AppCompatActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.action_weather) {
+            Intent intent = new Intent(TestToolbar.this,WeatherForecast.class);
+            startActivity(intent);
+            return true;
+        }
+        if (id == R.id.action_add) {
+            AlertDialog.Builder commentBuilder = new AlertDialog.Builder(this);
+            View commentView = getLayoutInflater().inflate(R.layout.custom_dialog, null);
+            message = commentView.findViewById(R.id.message);
+
+            commentBuilder.setView(commentView);
+            customDialog = commentBuilder.create();
+            customDialog.show();
+            return true;
+        }
+        if (id == R.id.action_message) {
+            Snackbar.make(this.findViewById( R.id.action_message),passedMessage, Snackbar.LENGTH_SHORT)
+                    .setAction("Action", null).show();
+            return true;
+        }
+        if (id == R.id.action_about) {
+            Toast.makeText(this,R.string.message,Toast.LENGTH_SHORT).show();
             return true;
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void Save(View view) {
+        passedMessage = message.getText().toString();
+        customDialog.dismiss();
     }
 }
