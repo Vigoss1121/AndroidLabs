@@ -23,4 +23,6 @@
     <string name="weatherMinTemp">最低温度</string>
     <string name="weatherMaxTemp">最高温度</string>
     <string name="button_weather">天气预报</string>
+    <string name="button_toolBar">工具栏</string>
+    <string name="action_settings">设置</string>
 </resources>

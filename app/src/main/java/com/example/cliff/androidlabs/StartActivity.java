@@ -98,4 +98,9 @@ public class StartActivity extends Activity {
         Intent intent = new Intent(StartActivity.this,WeatherForecast.class);
         startActivity(intent);
     }
+
+    public void button_toolBar(View view) {
+        Intent intent = new Intent(StartActivity.this, TestToolbar.class);
+        startActivity(intent);
+    }
 }

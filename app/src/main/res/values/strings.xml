@@ -22,4 +22,7 @@
     <string name="weatherMinTemp">Min Temperture</string>
     <string name="weatherMaxTemp">Max Temperature</string>
     <string name="button_weather">Weather Forecast</string>
+    <string name="title_activity_test_toolbar">TestToolbar</string>
+    <string name="button_toolBar">ToolBar</string>
+    <string name="action_settings">Setting</string>
 </resources>
